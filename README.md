@@ -5,7 +5,7 @@
 ## What is BubbleExpandableMenu ?
 
 <p align="center">
-<img src="http://i.imgur.com/fKGCCET.gif"/>
+<img src="http://i.imgur.com/fKGCCET.gif" width="320" height="568" />
 </p>
 
 ## Features
