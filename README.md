@@ -14,7 +14,7 @@ Build and run the `BubbleExpandableMenuDemo` project in Android Studio to see `B
 
 ## Installation
 
-### JCENTER / MAVEN
+### JCenter / Maven
 
 Comming soon.
 
