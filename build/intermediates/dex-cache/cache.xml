@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/Charles/Downloads/BubbleExpandableMenuDemo/app/build/intermediates/exploded-aar/BubbleExpandableMenuDemo/bubbleexpandablemenu/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c09200625dedd6fe917800c213b643825029dd2b">
+        <dex dex="/Users/Charles/Downloads/BubbleExpandableMenuDemo/app/build/intermediates/pre-dexed/debug/classes-a857eefc573201784d5ccb9f435b3a0afa5d6d67.jar" />
+    </item>
+
+</items>
