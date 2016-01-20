@@ -10,5 +10,3 @@
 #Tue Jan 19 21:46:29 CET 2016
 ndk.dir=/Users/Charles/Library/Android/sdk/ndk-bundle
 sdk.dir=/Users/Charles/Library/Android/sdk
-bintray.user=charlesharroch
-bintray.apikey=ced8f56a070c7aaa90c8a0b93d6e9b816c1153f3

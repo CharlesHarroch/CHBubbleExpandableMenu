@@ -3,26 +3,18 @@ package com.chtechlab.bubbleexpandablemenu;
 import android.content.Context;
 import android.graphics.Point;
 import android.util.AttributeSet;
-import android.util.Size;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-import butterknife.OnClick;
-
-import static java.lang.Math.abs;
+import static com.chtechlab.bubbleexpandablemenu.Tools.roundUp;
 
 /**
  * Created by Charles on 19/01/16.
@@ -43,8 +35,8 @@ public class BubbleExpandableMenu extends RelativeLayout {
     private ArrayList<RelativeLayout> items;
     private RelativeLayout closeBubble;
 
-    private Size closeBubbleSize = new Size(250, 250);
-    private Size bubbleSize = new Size(300, 300);
+    private CGSize closeBubbleSize = new CGSize(80, 80);
+    private CGSize bubbleSize = new CGSize(100, 100);
 
     private Point initialCloseMarginPosition;
     private Point initialMarginPosition;
@@ -75,6 +67,10 @@ public class BubbleExpandableMenu extends RelativeLayout {
         scrollView = (ScrollView)_root.findViewById(R.id.bubble_scrollview);
         rootContainer = (RelativeLayout)_root.findViewById(R.id.bubble_root_layout);
         alphaView = _root.findViewById(R.id.bubble_alpha_view);
+
+        CLOSE_MARGIN_BOTTOM = (int)Tools.convertDpToPixel(30, getContext());
+        BUBBLE_MARGIN_TOP = (int)Tools.convertDpToPixel(40, getContext());
+        BUBBLE_MARGIN_LEFT = (int)Tools.convertDpToPixel(80, getContext());
 
         items = new ArrayList<>();
 
@@ -210,7 +206,7 @@ public class BubbleExpandableMenu extends RelativeLayout {
     public void addCloseBubble() {
 
         closeBubble = new RelativeLayout(getContext());
-        closeBubble.setBackground(getResources().getDrawable(R.drawable.circle_image_background, null));
+        closeBubble.setBackground(getResources().getDrawable(R.drawable.circle_image_background));
         closeBubble.setAlpha(0.5f);
 
         // Add image Background
@@ -293,11 +289,6 @@ public class BubbleExpandableMenu extends RelativeLayout {
         view.requestLayout();
     }
 
-    public static long roundUp(long num, long divisor) {
-        int sign = (num > 0 ? 1 : -1) * (divisor > 0 ? 1 : -1);
-        return sign * (abs(num) + abs(divisor) - 1) / abs(divisor);
-    }
-
     /**
      * If you need to do something on closing, opening menu or on bubble selection,
      * set a listener here.
@@ -318,5 +309,23 @@ public class BubbleExpandableMenu extends RelativeLayout {
         public void openMenu();
         public void closeMenu();
         public void bubbleItemMenuClicked(Object tag);
+    }
+
+    private class CGSize {
+        int _height;
+        int _width;
+
+        public CGSize(int width, int height) {
+            _height = height;
+            _width = width;
+        }
+
+        public int getHeight() {
+            return (int)Tools.convertDpToPixel(_height, getContext());
+        }
+
+        public int getWidth() {
+            return (int)Tools.convertDpToPixel(_width, getContext());
+        }
     }
 }
